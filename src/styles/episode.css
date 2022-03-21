@@ -2,7 +2,9 @@ body {
   background-color: rgb(238, 238, 238);
   margin: none;
   padding: 5px;
+  overflow-x: hidden;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 100%;
 }
 
 .episode {
@@ -13,12 +15,13 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
   height: 500px;
+  overflow: hidden;
 }
 
 .grid-container {
   display: grid;
   column-gap: 50px;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: 22% 22% 22% 22%;
 }
 
 .grid-item {
@@ -34,4 +37,21 @@ body {
   transform: scale(
     1.1
   ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+input,
+#display-count {
+  display: inline-block;
+}
+input {
+  margin-right: 15px;
+  height: 25px;
+  width: 200px;
+  outline: none;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.searchbar-container {
+  padding: 15px;
 }
