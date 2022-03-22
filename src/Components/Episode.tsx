@@ -4,11 +4,8 @@ import generateEpisodeCode from "../utils/GenerateEpisodeCode";
 import filterEpisodesByName from "../utils/FilterEpisodesByName";
 import "../styles/episode.css";
 import { useState } from "react";
+import cleanSummary from "../utils/CleanSummary"
 
-function cleanSummary(summary: string): string {
-  const regPattern = /<[^<>]*>/g;
-  return summary.replace(regPattern, "");
-}
 
 export default function Episode(): JSX.Element {
   const [currentSearchTerm, setSearchTerm] = useState("");
