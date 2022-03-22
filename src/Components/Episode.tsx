@@ -1,11 +1,10 @@
-import episodes from "..//episodes.json";
+import episodes from "..//simpsons.json";
 import { episodeProps } from "../utils/Interfaces";
 import generateEpisodeCode from "../utils/GenerateEpisodeCode";
 import filterEpisodesByName from "../utils/FilterEpisodesByName";
 import "../styles/episode.css";
 import { useState } from "react";
-import cleanSummary from "../utils/CleanSummary"
-
+import cleanSummary from "../utils/CleanSummary";
 
 export default function Episode(): JSX.Element {
   const [currentSearchTerm, setSearchTerm] = useState("");
@@ -36,7 +35,7 @@ export default function Episode(): JSX.Element {
         {filteredEpisodes.map((episode: episodeProps) => (
           <div key={episode.id} className="episode grid-item zoom">
             <h2>{episode.name.concat(" " + generateEpisodeCode(episode))}</h2>
-            <img src={episode.image.medium} alt="" />
+            <img src={episode.image?.medium} alt="" />
             <p>{cleanSummary(episode.summary)}</p>
           </div>
         ))}
