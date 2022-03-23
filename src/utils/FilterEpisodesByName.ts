@@ -6,7 +6,7 @@ export default function filterEpisodesByName(
 ): boolean {
   const regPattern = RegExp(searchTerm, "i");
   const regexMatchesInName = name.match(regPattern);
-  const regexMatchesInSummary = summary.match(regPattern);
+  const regexMatchesInSummary = summary?.match(regPattern);
   return regexMatchesInName !== null || regexMatchesInSummary !== null
     ? true
     : false;

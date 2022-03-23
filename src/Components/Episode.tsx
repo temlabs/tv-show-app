@@ -1,9 +1,9 @@
-import episodes from "..//simpsons.json";
+// import episodes from "..//simpsons.json";
 import { episodeProps } from "../utils/Interfaces";
 import generateEpisodeCode from "../utils/GenerateEpisodeCode";
 import filterEpisodesByName from "../utils/FilterEpisodesByName";
 import "../styles/episode.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import cleanSummary from "../utils/CleanSummary";
 
 export default function Episode(): JSX.Element {
@@ -11,6 +11,13 @@ export default function Episode(): JSX.Element {
   const [selectedEpisode, setSelectedEpisode] = useState(
     "Choose an episode..."
   );
+  const [episodes, setEpisodes] = useState<episodeProps[]>([]);
+
+  useEffect(() => {
+    fetch("https://api.tvmaze.com/shows/82/episodes")
+      .then((response) => response.json())
+      .then((responseBody: episodeProps[]) => setEpisodes(responseBody));
+  }, []);
 
   function handleChangeInSearchBar(newSearchTerm: string) {
     setSearchTerm(newSearchTerm);
