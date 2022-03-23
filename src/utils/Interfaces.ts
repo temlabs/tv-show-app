@@ -9,11 +9,11 @@ export interface episodeProps {
   airtime: string;
   airstamp: string;
   runtime: number;
-  rating?: {average?: number|null};
+  rating?: { average?: number | null };
   image: {
     medium: string;
     original: string;
-  }|null;
+  } | null;
   summary: string;
   _links: { self: { href: string } };
 }
