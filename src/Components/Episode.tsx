@@ -61,17 +61,29 @@ export default function Episode(): JSX.Element {
     filterEpisodesByName(episode, selectedEpisode.split(" - ")[1])
   );
 
+  function sortByName(showA: showProps, showB: showProps) {
+    if (showA.name > showB.name) {
+      return 1;
+    } else if (showA.name < showB.name) {
+      return -1;
+    } else {
+      return 0;
+    }
+  }
+
   return (
     <>
       <section className="filter-container">
         <div>
           <select onChange={(e) => handleShowSelection(e.target.value)}>
             <option>Choose a show...</option>
-            {shows.map((show: showProps) => (
-              <option key={show.id} data-showid={show.id}>
-                {show.name}{" "}
-              </option>
-            ))}
+            {shows
+              .sort((a, b) => sortByName(a, b))
+              .map((show: showProps) => (
+                <option key={show.id} data-showid={show.id}>
+                  {show.name}{" "}
+                </option>
+              ))}
           </select>
           <select
             className="select-episode box-shadow"
