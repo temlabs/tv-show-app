@@ -12,13 +12,17 @@ export default function Episode(): JSX.Element {
     "Choose an episode..."
   );
   const [episodes, setEpisodes] = useState<episodeProps[]>([]);
-  const [show, setSelectedShow] = useState<showProps>()
+  const [show, setSelectedShow] = useState<showProps>();
 
   useEffect(() => {
-    if (show){
-      fetch("https://api.tvmaze.com/shows/" + getShow(show.id.toString()) + "/episodes")
-      .then((response) => response.json())
-      .then((responseBody: episodeProps[]) => setEpisodes(responseBody));
+    if (show?.name) {
+      fetch(
+        "https://api.tvmaze.com/shows/" +
+          getShow(show.name)?.id.toString() +
+          "/episodes"
+      )
+        .then((response) => response.json())
+        .then((responseBody: episodeProps[]) => setEpisodes(responseBody));
     }
   }, [show]);
 
@@ -30,20 +34,22 @@ export default function Episode(): JSX.Element {
     setSelectedEpisode(newSelectedEpisode);
   }
 
-  function handleShowSelection(newSelectedShow: string | undefined ){
-    console.log(newSelectedShow)
-    if (newSelectedShow){
-      setSelectedShow(getShow(newSelectedShow))
-    } 
+  function handleShowSelection(newSelectedShow: string | undefined) {
+    console.log(newSelectedShow);
+    if (newSelectedShow) {
+      setSelectedShow(getShow(newSelectedShow));
+    }
   }
 
   function getShow(showName: string): showProps | undefined {
-    const matchingShow: showProps | undefined= shows.find((show)=>(show.name===showName)) 
-    console.log(matchingShow?.id)
-    if (matchingShow !== undefined){
-      return matchingShow
-    } else{
-    return undefined
+    const matchingShow: showProps | undefined = shows.find(
+      (show) => show.name === showName
+    );
+    console.log(matchingShow?.id);
+    if (matchingShow !== undefined) {
+      return matchingShow;
+    } else {
+      return undefined;
     }
   }
 
@@ -59,12 +65,12 @@ export default function Episode(): JSX.Element {
     <>
       <section className="filter-container">
         <div>
-          <select
-          onChange={(e) => handleShowSelection(e.target.value)}
-          >
+          <select onChange={(e) => handleShowSelection(e.target.value)}>
             <option>Choose a show...</option>
             {shows.map((show: showProps) => (
-              <option key={show.id} data-showid={show.id}>{show.name} </option>
+              <option key={show.id} data-showid={show.id}>
+                {show.name}{" "}
+              </option>
             ))}
           </select>
           <select

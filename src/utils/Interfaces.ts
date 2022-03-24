@@ -19,45 +19,45 @@ export interface episodeProps {
 }
 
 export interface showProps {
-  id:             number;
-  url:            string;
-  name:           string;
-  type:           string;
-  language:       string;
-  genres:         string[];
-  status:         string;
-  runtime:        number | null;
+  id: number;
+  url: string;
+  name: string;
+  type: string;
+  language: string;
+  genres: string[];
+  status: string;
+  runtime: number | null;
   averageRuntime: number | null;
-  premiered:      string | null;
-  ended:          string | null;
-  officialSite:   null | string;
-  schedule:       Schedule;
-  rating:         Rating;
-  weight:         number;
-  network:        Network | null;
-  webChannel:     Network | null;
-  dvdCountry:     null;
-  externals:      Externals;
-  image:          Image;
-  summary:        string;
-  updated:        number;
-  _links:         Links;
+  premiered: string | null;
+  ended: string | null;
+  officialSite: null | string;
+  schedule: Schedule;
+  rating: Rating;
+  weight: number;
+  network: Network | null;
+  webChannel: Network | null;
+  dvdCountry: null;
+  externals: Externals;
+  image: Image;
+  summary: string;
+  updated: number;
+  _links: Links;
 }
 export interface Links {
-  self:             Nextepisode;
+  self: Nextepisode;
   previousepisode?: Nextepisode;
-  nextepisode?:     Nextepisode;
+  nextepisode?: Nextepisode;
 }
 export interface Nextepisode {
   href: string;
 }
 export interface Externals {
-  tvrage:  number;
+  tvrage: number;
   thetvdb: number | null;
-  imdb:    null | string;
+  imdb: null | string;
 }
 export interface Image {
-  medium:   string;
+  medium: string;
   original: string;
 }
 export enum Language {
@@ -65,14 +65,14 @@ export enum Language {
   Japanese = "Japanese",
 }
 export interface Network {
-  id:            number;
-  name:          string;
-  country:       Country | null;
+  id: number;
+  name: string;
+  country: Country | null;
   officialSite?: null | string;
 }
 export interface Country {
-  name:     string;
-  code:     string;
+  name: string;
+  code: string;
   timezone: string;
 }
 export enum Code {
