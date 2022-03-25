@@ -68,3 +68,11 @@ select {
 .filter-container {
   padding: 15px;
 }
+
+button {
+  margin: 15px;
+}
+
+#display-count {
+  color: white;
+}

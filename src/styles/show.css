@@ -1,0 +1,43 @@
+.title {
+  grid-area: title;
+}
+.show-image {
+  grid-area: show-image;
+}
+.summary {
+  grid-area: summary;
+  padding: 0px 20px;
+}
+.ratings-div {
+  grid-area: ratings-div;
+}
+body {
+  /* background-color: rgb(102, 7, 8); */
+  background-image: linear-gradient(to right, rgb(102, 7, 8), rgb(186, 24, 27));
+}
+
+.showcard-section {
+  display: grid;
+  grid-template-areas:
+    "title title title title title title"
+    "show-image summary summary summary summary ratings-div";
+  gap: 10px;
+  background-color: rgb(245, 243, 244);
+  padding: 10px 40px;
+  margin: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.box-shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.showcard-section > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  height: 180px;
+  overflow: overflow-wrap;
+  width: 200px;
+  border-radius: 10px;
+}
