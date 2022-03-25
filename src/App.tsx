@@ -1,8 +1,10 @@
-import Episode from "./Components/Episode";
+import Episode from "./Components/Main";
+import "./styles/app.css";
 
 function App(): JSX.Element {
   return (
     <>
+      <header></header>
       <Episode />
       <footer>
         <p>
