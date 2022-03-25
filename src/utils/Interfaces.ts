@@ -42,6 +42,7 @@ export interface showProps {
   summary: string;
   updated: number;
   _links: Links;
+  onClickFunction?: (showId: string) => void;
 }
 export interface Links {
   self: Nextepisode;
